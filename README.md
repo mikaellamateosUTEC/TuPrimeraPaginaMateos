@@ -26,7 +26,7 @@ cd TuPrimerPaginaMateos
 
 2. Crear y activar entorno virtual:
 
-# Windows
+Windows
 
 ```bash
  python -m venv env
