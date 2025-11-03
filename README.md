@@ -86,6 +86,14 @@ Acceder al panel de administración: [http://127.0.0.1:8000/admin](http://127.0.
 - Dashboard que muestra un resumen de proyectos, testers y casos de prueba.
 - Formularios de creación de proyectos, testers y casos de prueba
 
+## Pruebas
+
+1. Crear un proyecto
+2. Crear un tester
+3. Crear un caso de prueba
+4. Buscar un caso de prueba por nombre
+5. En la pantalla dashboard se puede visualizar un resumen de proyectos, testers y casos de pruebas
+
 ## URLs y funcionalidades
 
 - `/` → Dashboard con resumen de proyectos, testers y casos de prueba.
