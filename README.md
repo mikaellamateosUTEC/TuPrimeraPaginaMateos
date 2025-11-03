@@ -12,7 +12,6 @@ El proyecto está diseñado siguiendo el patrón **MVT (Modelo-Vista-Template)**
 - Python 3.9+
 - Django 4.2+
 - SQLite (base de datos por defecto)
-- Bootstrap 5
 - Python-Decouple (manejo de variables de entorno)
 
 ## Instalación
