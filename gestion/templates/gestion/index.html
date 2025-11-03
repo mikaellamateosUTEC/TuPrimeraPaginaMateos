@@ -1,0 +1,93 @@
+{% extends 'gestion/base.html' %} {% block contenido %}
+<div class="container">
+  <h1>Dashboard QA</h1>
+
+  <div class="cards-container">
+    {% for item in resumen %}
+    <div class="resumen-card">
+      <h3>{{ item.proyecto__nombre }}</h3>
+      <p><strong>Tester:</strong> {{ item.tester__nombre }}</p>
+      <p><strong>Total Casos:</strong> {{ item.total }}</p>
+    </div>
+    {% empty %} {% endfor %}
+  </div>
+
+  <div class="card-section">
+    <h2>Proyectos</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Fecha Inicio</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for proyecto in proyectos %}
+        <tr>
+          <td>{{ proyecto.nombre }}</td>
+          <td>{{ proyecto.descripcion }}</td>
+          <td>{{ proyecto.fecha_inicio }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="3">No hay proyectos</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card-section">
+    <h2>Testers</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for tester in testers %}
+        <tr>
+          <td>{{ tester.nombre }}</td>
+          <td>{{ tester.email }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="2">No hay testers</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card-section">
+    <h2>Casos de Prueba</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Proyecto</th>
+          <th>Tester</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for caso in casos %}
+        <tr>
+          <td>{{ caso.id_caso }}</td>
+          <td>{{ caso.nombre }}</td>
+          <td>{{ caso.proyecto.nombre }}</td>
+          <td>{{ caso.tester.nombre }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="4">No hay casos de prueba</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

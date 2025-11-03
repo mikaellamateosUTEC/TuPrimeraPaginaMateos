@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Gestión QA</title>
+    <link rel="stylesheet" href="{% static 'gestion/style.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <i class="fas fa-vial"></i>
+        <a href="{% url 'index' %}">QA Management</a>
+      </div>
+      <ul class="navbar-menu">
+        <li>
+          <a href="{% url 'agregar_proyecto' %}"
+            ><i class="fas fa-folder-plus"></i> Nuevo Proyecto</a
+          >
+        </li>
+        <li>
+          <a href="{% url 'agregar_tester' %}"
+            ><i class="fas fa-user-plus"></i> Nuevo Tester</a
+          >
+        </li>
+        <li>
+          <a href="{% url 'crear_caso' %}"
+            ><i class="fas fa-file-alt"></i> Nuevo Caso de Prueba</a
+          >
+        </li>
+        <li>
+          <a href="{% url 'buscar_caso' %}"
+            ><i class="fas fa-search"></i> Buscar Caso de Prueba</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container">{% block contenido %}{% endblock %}</div>
+  </body>
+</html>

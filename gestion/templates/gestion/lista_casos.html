@@ -1,0 +1,30 @@
+{% extends 'gestion/base.html' %} {% block contenido %}
+<h1>Lista de Casos de Prueba</h1>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Estado</th>
+      <th>Prioridad</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for caso in casos %}
+    <tr>
+      <td>{{ caso.id_caso }}</td>
+      <td>{{ caso.nombre }}</td>
+      <td>{{ caso.get_estado_display }}</td>
+      <td>{{ caso.prioridad }}</td>
+      <td><a href="#">Ver / Editar</a></td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="5">No hay casos de prueba.</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<a href="{% url 'crear_caso' %}" class="btn btn-success">Agregar Nuevo Caso</a>
+{% endblock %}

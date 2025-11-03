@@ -1,0 +1,39 @@
+{% extends 'gestion/base.html' %} {% block contenido %}
+<div class="container">
+  <h1>Buscar Casos de Prueba</h1>
+
+  <form method="get" class="buscar-form">
+    {% csrf_token %} {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Buscar</button>
+  </form>
+
+  {% if resultados %}
+  <table class="tabla-casos">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Estado</th>
+        <th>Prioridad</th>
+        <th>Tester</th>
+        <th>Proyecto</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for caso in resultados %}
+      <tr>
+        <td>{{ caso.id_caso }}</td>
+        <td>{{ caso.nombre }}</td>
+        <td>{{ caso.get_estado_display }}</td>
+        <td>{{ caso.prioridad }}</td>
+        <td>{{ caso.tester.nombre }}</td>
+        <td>{{ caso.proyecto.nombre }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p>No se encontraron casos de prueba.</p>
+  {% endif %}
+</div>
+{% endblock %}
